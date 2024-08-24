@@ -25,7 +25,7 @@ jobs:
 
     - name: Run the bot
       env:
-        TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        TOKEN: ${{ secrets.TOKEN }}
         CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
         PROFILE_URL: ${{ secrets.PROFILE_URL }}
       run: |
