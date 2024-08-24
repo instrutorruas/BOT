@@ -1,2 +1,4 @@
+# requirements.txt
 discord.py==2.4.0
 selenium==4.9.1
+webdriver-manager==4.8.0
