@@ -6,6 +6,7 @@ import discord
 from discord.ext import tasks, commands
 import time
 import os
+from discord.ext import commands
 
 # Discord bot setup
 TOKEN = os.getenv('TOKEN')
