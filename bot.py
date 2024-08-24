@@ -10,7 +10,7 @@ import os
 # Discord bot setup
 TOKEN = os.getenv('TOKEN')
 CHANNEL_ID = int(os.getenv('CHANNEL_ID'))  # Convert to integer
-PROFILE_URL = os.getenv('PROFILE_URL')  # Replace 'username' with the actual username
+PROFILE_URL = 'https://pt.cam4.com/alicemonteiro' # Replace 'username' with the actual username
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
