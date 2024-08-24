@@ -1,9 +1,9 @@
 name: Run Discord Bot
 
-# This will run the workflow every 5 minutes
 on:
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '*/20 * * * *'  # Adjust this as needed
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   run-bot:
