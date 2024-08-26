@@ -2,12 +2,9 @@ name: Run Discord Bot
 
 on:
   schedule:
-     # For Daylight Saving Time (UTC+1)
-    # Uncomment the following lines if in Daylight Saving Time
-    - cron: '*/5 08-09 * * *'   # Every 5 minutes from 09:00 to 10:00 WEST
-    - cron: '*/5 17-22 * * *'   # Every 5 minutes from 18:00 to 23:59 WEST
-    - cron: '*/5 00-02 * * *'   # Every 5 minutes from 00:00 to 02:00 WEST
+    - cron: '*/5 * * * *'  # Run every 20 minutes
   workflow_dispatch:  # Allows manual triggering
+
 
 jobs:
   run-bot:
