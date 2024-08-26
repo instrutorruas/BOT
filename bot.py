@@ -41,7 +41,7 @@ async def on_ready():
     channel = bot.get_channel(CHANNEL_ID)
     
     if check_live_status():
-        await channel.send(f"{PROFILE_URL} TÁ LIVE CARALHOOOOOOOOOO")
+        await channel.send(f"{PROFILE_URL} TÁ LIVE CARALHOOOOOOOOOO @everyone")
         
     else:
         await channel.send(f"Checked {PROFILE_URL}, not live.")
