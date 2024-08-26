@@ -50,4 +50,5 @@ async def on_ready():
     await bot.close()
 
 # Run the bot
+
 bot.run(TOKEN)
