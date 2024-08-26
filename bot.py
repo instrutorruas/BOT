@@ -10,13 +10,12 @@ import os
 # Discord bot setup
 TOKEN = os.getenv('TOKEN')
 CHANNEL_ID = int(os.getenv('CHANNEL_ID'))  # Convert to integer
-PROFILE_URL = 'https://pt.cam4.com/alicemonteiro' # Replace 'username' with the actual username
+PROFILE_URL = int(os.getenv('PROFILE_URL')) # Replace 'username' with the actual username
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 def check_live_status():
-    """Check if the profile is live on Cam4."""
     service = Service(ChromeDriverManager().install())
     options = webdriver.ChromeOptions()
     options.headless = True
@@ -27,13 +26,12 @@ def check_live_status():
     
     time.sleep(5)  # Wait for the page to load fully
     
-    try:
-        live_indicator = driver.find_element(By.ID, 'profileVideoWrap')
-        driver.quit()
-        return live_indicator is not None
-    except:
-        driver.quit()
-        return False
+    final_url = driver.current_url  # Get the final URL after any redirects
+    print(final_url)
+    driver.quit()
+    
+    # Check if the final URL ends with '/profile'
+    return not final_url.endswith('/profile')
 
 @bot.event
 async def on_ready():
@@ -43,9 +41,10 @@ async def on_ready():
     channel = bot.get_channel(CHANNEL_ID)
     
     if check_live_status():
-        await channel.send(f"{PROFILE_URL} TÁ LIVE CARALHOOOOOOOOOO @everyone")
+        await channel.send(f"{PROFILE_URL} TÁ LIVE CARALHOOOOOOOOOO")
+        
     else:
-        print("Not live")
+        await channel.send(f"Checked {PROFILE_URL}, not live.")
     
     # Stop the bot after checking
     await bot.close()
